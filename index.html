@@ -134,11 +134,23 @@
   .photo-overlay {
     position: absolute; inset: 0;
     background: rgba(10,10,9,0); transition: background 0.3s;
-    display: flex; align-items: flex-end; padding: 1rem;
+    display: flex; align-items: flex-end; padding: 1rem; justify-content: space-between;
   }
   .photo-card:hover .photo-overlay { background: rgba(10,10,9,0.55); }
   .photo-meta { opacity: 0; transform: translateY(8px); transition: all 0.25s; }
   .photo-card:hover .photo-meta { opacity: 1; transform: translateY(0); }
+  .photo-like-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; transition: all 0.2s;
+    align-self: flex-end; padding: 0.5rem;
+    opacity: 0; transform: scale(0.8);
+  }
+  .photo-card:hover .photo-like-btn { opacity: 1; transform: scale(1); }
+  .photo-like-btn.liked { filter: drop-shadow(0 0 4px rgba(200,169,110,0.6)); }
+  .photo-like-count {
+    font-size: 0.72rem; color: var(--accent); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-top: 0.3rem; text-align: center;
+  }
   .photo-meta-title {
     font-family: 'Playfair Display', serif;
     font-size: 0.95rem; color: var(--txt); margin-bottom: 0.2rem;
@@ -395,6 +407,7 @@
           <div class="photo-meta-title">Urbano</div>
           <div class="photo-meta-loc">Montevideo</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -407,6 +420,7 @@
           <div class="photo-meta-title">Naturaleza</div>
           <div class="photo-meta-loc">Parque Rodó</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -419,6 +433,7 @@
           <div class="photo-meta-title">Amanecer</div>
           <div class="photo-meta-loc">Playa Brava</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -431,6 +446,7 @@
           <div class="photo-meta-title">Mirada</div>
           <div class="photo-meta-loc">Parque</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -443,6 +459,7 @@
           <div class="photo-meta-title">Calles</div>
           <div class="photo-meta-loc">Ciudad Vieja</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -455,6 +472,7 @@
           <div class="photo-meta-title">Flora</div>
           <div class="photo-meta-loc">Jardín</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -467,6 +485,7 @@
           <div class="photo-meta-title">Noche</div>
           <div class="photo-meta-loc">Centro</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -479,6 +498,7 @@
           <div class="photo-meta-title">Expresión</div>
           <div class="photo-meta-loc">Estudio</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -491,6 +511,7 @@
           <div class="photo-meta-title">Arquitectura</div>
           <div class="photo-meta-loc">Pocitos</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -503,6 +524,7 @@
           <div class="photo-meta-title">Cielo</div>
           <div class="photo-meta-loc">Colonia</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -515,6 +537,7 @@
           <div class="photo-meta-title">Momento</div>
           <div class="photo-meta-loc">Barrio</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -527,6 +550,7 @@
           <div class="photo-meta-title">Perfil</div>
           <div class="photo-meta-loc">Paseo</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -539,6 +563,7 @@
           <div class="photo-meta-title">Luces</div>
           <div class="photo-meta-loc">Rambla</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -551,6 +576,7 @@
           <div class="photo-meta-title">Paisaje</div>
           <div class="photo-meta-loc">Sierra</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -563,6 +589,7 @@
           <div class="photo-meta-title">Rutina</div>
           <div class="photo-meta-loc">Hogar</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -575,6 +602,7 @@
           <div class="photo-meta-title">Candid</div>
           <div class="photo-meta-loc">Café</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -587,6 +615,7 @@
           <div class="photo-meta-title">Texturas</div>
           <div class="photo-meta-loc">Centro</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -599,6 +628,7 @@
           <div class="photo-meta-title">Atardecer</div>
           <div class="photo-meta-loc">Playa</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -611,6 +641,7 @@
           <div class="photo-meta-title">Navideño</div>
           <div class="photo-meta-loc">Centro</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -623,6 +654,7 @@
           <div class="photo-meta-title">Festividad</div>
           <div class="photo-meta-loc">Hogar</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -635,6 +667,7 @@
           <div class="photo-meta-title">Sonrisa</div>
           <div class="photo-meta-loc">Estudio</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -647,6 +680,7 @@
           <div class="photo-meta-title">Bosque</div>
           <div class="photo-meta-loc">Sierra</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -659,6 +693,7 @@
           <div class="photo-meta-title">Nocturnos</div>
           <div class="photo-meta-loc">Rambla</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -671,6 +706,7 @@
           <div class="photo-meta-title">Café</div>
           <div class="photo-meta-loc">Barrio</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -683,6 +719,7 @@
           <div class="photo-meta-title">Contraste</div>
           <div class="photo-meta-loc">Paseo</div>
         </div>
+        <button class="photo-like-btn" onclick="toggleLike(event)">♡</button>
       </div>
     </div>
 
@@ -800,6 +837,48 @@
 </div>
 
 <script>
+  // ── Sistema de likes ─────────────────────────────
+  function toggleLike(event) {
+    event.stopPropagation(); // Evita que se abra el lightbox
+    const btn = event.target;
+    const card = btn.closest('.photo-card');
+    const img = card.querySelector('img');
+    const photoId = img.src; // Usamos la URL como ID único
+    
+    // Obtenemos los likes almacenados
+    let likes = JSON.parse(localStorage.getItem('photoLikes')) || {};
+    
+    // Alternar el like
+    if (likes[photoId]) {
+      delete likes[photoId];
+      btn.classList.remove('liked');
+    } else {
+      likes[photoId] = true;
+      btn.classList.add('liked');
+    }
+    
+    // Guardamos en localStorage
+    localStorage.setItem('photoLikes', JSON.stringify(likes));
+    
+    // Animación
+    btn.style.transform = 'scale(1.3)';
+    setTimeout(() => btn.style.transform = 'scale(1)', 200);
+  }
+
+  // Restaurar estado de likes al cargar la página
+  function restoreLikes() {
+    const likes = JSON.parse(localStorage.getItem('photoLikes')) || {};
+    document.querySelectorAll('.photo-like-btn').forEach(btn => {
+      const photoId = btn.closest('.photo-card').querySelector('img').src;
+      if (likes[photoId]) {
+        btn.classList.add('liked');
+      }
+    });
+  }
+
+  // Llamar al cargar el DOM
+  document.addEventListener('DOMContentLoaded', restoreLikes);
+
   // ── Filtrado de galería ──────────────────────────────
   function filterGallery(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
